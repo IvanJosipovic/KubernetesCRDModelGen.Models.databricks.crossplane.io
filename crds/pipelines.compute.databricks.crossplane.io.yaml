@@ -2,7 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.18.0
+    controller-gen.kubebuilder.io/version: v0.19.0
   name: pipelines.compute.databricks.crossplane.io
 spec:
   group: compute.databricks.crossplane.io
@@ -78,7 +78,7 @@ spec:
                     description: optional string specifying ID of the budget policy for this Lakeflow Declarative Pipeline.
                     type: string
                   catalog:
-                    description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                    description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                     type: string
                   cause:
                     type: string
@@ -361,7 +361,7 @@ spec:
                     items:
                       properties:
                         catalog:
-                          description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                          description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                           type: string
                         name:
                           description: A user-friendly name for this pipeline. The name can be used to identify pipeline jobs in the UI.
@@ -399,6 +399,14 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        connectionParameters:
+                          items:
+                            properties:
+                              sourceCatalog:
+                                description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
+                                type: string
+                            type: object
+                          type: array
                         gatewayStorageCatalog:
                           description: Required, Immutable. The name of the catalog for the gateway pipeline's storage location.
                           type: string
@@ -418,8 +426,13 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        ingestFromUcForeignCatalog:
+                          description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
+                          type: boolean
                         ingestionGatewayId:
                           description: Immutable. Identifier for the ingestion gateway used by this ingestion pipeline to communicate with the source. Specify either ingestion_gateway_id or connection_name.
+                          type: string
+                        netsuiteJarPath:
                           type: string
                         objects:
                           description: Required. Settings specifying tables to replicate and the destination for the replicated tables.
@@ -429,7 +442,7 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -476,6 +489,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -485,13 +519,13 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
                                       type: string
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     sourceSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -533,6 +567,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -541,7 +596,7 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -549,7 +604,7 @@ spec:
                                     destinationTable:
                                       type: string
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     sourceSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -593,6 +648,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -603,7 +679,7 @@ spec:
                           items:
                             properties:
                               catalog:
-                                description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                 items:
                                   properties:
                                     postgres:
@@ -623,7 +699,7 @@ spec:
                                         type: object
                                       type: array
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                   type: object
                                 type: array
@@ -667,6 +743,27 @@ spec:
                               sequenceBy:
                                 items:
                                   type: string
+                                type: array
+                              workdayReportParameters:
+                                items:
+                                  properties:
+                                    incremental:
+                                      type: boolean
+                                    parameters:
+                                      additionalProperties:
+                                        type: string
+                                      type: object
+                                      x-kubernetes-map-type: granular
+                                    reportParameters:
+                                      items:
+                                        properties:
+                                          key:
+                                            type: string
+                                          value:
+                                            type: string
+                                        type: object
+                                      type: array
+                                  type: object
                                 type: array
                             type: object
                           type: array
@@ -868,7 +965,7 @@ spec:
                   state:
                     type: string
                   storage:
-                    description: A location on cloud storage where output data and metadata required for pipeline execution are stored. By default, tables are stored in a subdirectory of this location. Change of this parameter forces recreation of the pipeline. (Conflicts with catalog).
+                    description: to catalog or vice versa.  If pipeline was already created with catalog set, the value could be changed.
                     type: string
                   tags:
                     additionalProperties:
@@ -900,6 +997,9 @@ spec:
                     type: array
                   url:
                     description: URL of the Lakeflow Declarative Pipeline on the given workspace.
+                    type: string
+                  usagePolicyId:
+                    description: Canonical unique identifier of the Lakeflow Declarative Pipeline.
                     type: string
                 type: object
               initProvider:
@@ -922,7 +1022,7 @@ spec:
                     description: optional string specifying ID of the budget policy for this Lakeflow Declarative Pipeline.
                     type: string
                   catalog:
-                    description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                    description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                     type: string
                   cause:
                     type: string
@@ -1205,7 +1305,7 @@ spec:
                     items:
                       properties:
                         catalog:
-                          description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                          description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                           type: string
                         name:
                           description: A user-friendly name for this pipeline. The name can be used to identify pipeline jobs in the UI.
@@ -1243,6 +1343,14 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        connectionParameters:
+                          items:
+                            properties:
+                              sourceCatalog:
+                                description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
+                                type: string
+                            type: object
+                          type: array
                         gatewayStorageCatalog:
                           description: Required, Immutable. The name of the catalog for the gateway pipeline's storage location.
                           type: string
@@ -1262,8 +1370,13 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        ingestFromUcForeignCatalog:
+                          description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
+                          type: boolean
                         ingestionGatewayId:
                           description: Immutable. Identifier for the ingestion gateway used by this ingestion pipeline to communicate with the source. Specify either ingestion_gateway_id or connection_name.
+                          type: string
+                        netsuiteJarPath:
                           type: string
                         objects:
                           description: Required. Settings specifying tables to replicate and the destination for the replicated tables.
@@ -1273,7 +1386,7 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -1320,6 +1433,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -1329,13 +1463,13 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
                                       type: string
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     sourceSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -1377,6 +1511,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -1385,7 +1540,7 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -1393,7 +1548,7 @@ spec:
                                     destinationTable:
                                       type: string
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     sourceSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -1437,6 +1592,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -1447,7 +1623,7 @@ spec:
                           items:
                             properties:
                               catalog:
-                                description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                 items:
                                   properties:
                                     postgres:
@@ -1467,7 +1643,7 @@ spec:
                                         type: object
                                       type: array
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                   type: object
                                 type: array
@@ -1511,6 +1687,27 @@ spec:
                               sequenceBy:
                                 items:
                                   type: string
+                                type: array
+                              workdayReportParameters:
+                                items:
+                                  properties:
+                                    incremental:
+                                      type: boolean
+                                    parameters:
+                                      additionalProperties:
+                                        type: string
+                                      type: object
+                                      x-kubernetes-map-type: granular
+                                    reportParameters:
+                                      items:
+                                        properties:
+                                          key:
+                                            type: string
+                                          value:
+                                            type: string
+                                        type: object
+                                      type: array
+                                  type: object
                                 type: array
                             type: object
                           type: array
@@ -1712,7 +1909,7 @@ spec:
                   state:
                     type: string
                   storage:
-                    description: A location on cloud storage where output data and metadata required for pipeline execution are stored. By default, tables are stored in a subdirectory of this location. Change of this parameter forces recreation of the pipeline. (Conflicts with catalog).
+                    description: to catalog or vice versa.  If pipeline was already created with catalog set, the value could be changed.
                     type: string
                   tags:
                     additionalProperties:
@@ -1744,6 +1941,9 @@ spec:
                     type: array
                   url:
                     description: URL of the Lakeflow Declarative Pipeline on the given workspace.
+                    type: string
+                  usagePolicyId:
+                    description: Canonical unique identifier of the Lakeflow Declarative Pipeline.
                     type: string
                 type: object
               managementPolicies:
@@ -1844,7 +2044,7 @@ spec:
                     description: optional string specifying ID of the budget policy for this Lakeflow Declarative Pipeline.
                     type: string
                   catalog:
-                    description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                    description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                     type: string
                   cause:
                     type: string
@@ -2127,7 +2327,7 @@ spec:
                     items:
                       properties:
                         catalog:
-                          description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                          description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                           type: string
                         name:
                           description: A user-friendly name for this pipeline. The name can be used to identify pipeline jobs in the UI.
@@ -2165,6 +2365,14 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        connectionParameters:
+                          items:
+                            properties:
+                              sourceCatalog:
+                                description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
+                                type: string
+                            type: object
+                          type: array
                         gatewayStorageCatalog:
                           description: Required, Immutable. The name of the catalog for the gateway pipeline's storage location.
                           type: string
@@ -2187,8 +2395,13 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        ingestFromUcForeignCatalog:
+                          description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
+                          type: boolean
                         ingestionGatewayId:
                           description: Immutable. Identifier for the ingestion gateway used by this ingestion pipeline to communicate with the source. Specify either ingestion_gateway_id or connection_name.
+                          type: string
+                        netsuiteJarPath:
                           type: string
                         objects:
                           description: Required. Settings specifying tables to replicate and the destination for the replicated tables.
@@ -2198,7 +2411,7 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -2245,6 +2458,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -2254,13 +2488,13 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
                                       type: string
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     sourceSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -2302,6 +2536,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -2310,7 +2565,7 @@ spec:
                                 items:
                                   properties:
                                     destinationCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     destinationSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -2318,7 +2573,7 @@ spec:
                                     destinationTable:
                                       type: string
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                     sourceSchema:
                                       description: The default schema (database) where tables are read from or published to. The presence of this attribute implies that the pipeline is in direct publishing mode.
@@ -2362,6 +2617,27 @@ spec:
                                             items:
                                               type: string
                                             type: array
+                                          workdayReportParameters:
+                                            items:
+                                              properties:
+                                                incremental:
+                                                  type: boolean
+                                                parameters:
+                                                  additionalProperties:
+                                                    type: string
+                                                  type: object
+                                                  x-kubernetes-map-type: granular
+                                                reportParameters:
+                                                  items:
+                                                    properties:
+                                                      key:
+                                                        type: string
+                                                      value:
+                                                        type: string
+                                                    type: object
+                                                  type: array
+                                              type: object
+                                            type: array
                                         type: object
                                       type: array
                                   type: object
@@ -2372,7 +2648,7 @@ spec:
                           items:
                             properties:
                               catalog:
-                                description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                 items:
                                   properties:
                                     postgres:
@@ -2392,7 +2668,7 @@ spec:
                                         type: object
                                       type: array
                                     sourceCatalog:
-                                      description: The name of catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline. (Conflicts with storage).
+                                      description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                                       type: string
                                   type: object
                                 type: array
@@ -2436,6 +2712,27 @@ spec:
                               sequenceBy:
                                 items:
                                   type: string
+                                type: array
+                              workdayReportParameters:
+                                items:
+                                  properties:
+                                    incremental:
+                                      type: boolean
+                                    parameters:
+                                      additionalProperties:
+                                        type: string
+                                      type: object
+                                      x-kubernetes-map-type: granular
+                                    reportParameters:
+                                      items:
+                                        properties:
+                                          key:
+                                            type: string
+                                          value:
+                                            type: string
+                                        type: object
+                                      type: array
+                                  type: object
                                 type: array
                             type: object
                           type: array
@@ -2564,7 +2861,7 @@ spec:
                   state:
                     type: string
                   storage:
-                    description: A location on cloud storage where output data and metadata required for pipeline execution are stored. By default, tables are stored in a subdirectory of this location. Change of this parameter forces recreation of the pipeline. (Conflicts with catalog).
+                    description: to catalog or vice versa.  If pipeline was already created with catalog set, the value could be changed.
                     type: string
                   tags:
                     additionalProperties:
@@ -2596,6 +2893,9 @@ spec:
                     type: array
                   url:
                     description: URL of the Lakeflow Declarative Pipeline on the given workspace.
+                    type: string
+                  usagePolicyId:
+                    description: Canonical unique identifier of the Lakeflow Declarative Pipeline.
                     type: string
                 type: object
               conditions:

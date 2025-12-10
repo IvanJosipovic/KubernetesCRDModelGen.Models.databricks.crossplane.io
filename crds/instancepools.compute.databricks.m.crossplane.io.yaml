@@ -2,7 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.18.0
+    controller-gen.kubebuilder.io/version: v0.19.0
   name: instancepools.compute.databricks.m.crossplane.io
 spec:
   group: compute.databricks.m.crossplane.io
@@ -63,6 +63,9 @@ spec:
                         availability:
                           description: Availability type used for all nodes. Valid values are SPOT_AZURE and ON_DEMAND_AZURE.
                           type: string
+                        instanceProfileArn:
+                          description: Nodes belonging to the pool will only be placed on AWS instances with this instance profile.
+                          type: string
                         spotBidPricePercent:
                           description: (Integer) The max price for AWS spot instances, as a percentage of the corresponding instance type's on-demand price. For example, if this field is set to 50, and the instance pool needs a new i3.xlarge spot instance, then the max price is half of the price of on-demand i3.xlarge instances. Similarly, if this field is set to 200, the max price is twice the price of on-demand i3.xlarge instances. If not specified, the default value is 100. When spot instances are requested for this instance pool, only spot instances whose max price percentage matches this field are considered. For safety, this field cannot be greater than 10000.
                           type: number
@@ -179,7 +182,7 @@ spec:
                     items:
                       properties:
                         basicAuth:
-                          description: basic_auth.username and basic_auth.password for Docker repository. Docker registry credentials are encrypted when they are stored in Databricks internal storage and when they are passed to a registry upon fetching Docker images at cluster launch. However, other authenticated and authorized API users of this workspace can access the username and password.
+                          description: 'basic_auth.username and basic_auth.password for Docker repository. Docker registry credentials are encrypted when they are stored in Databricks internal storage and when they are passed to a registry upon fetching Docker images at cluster launch.  For better security, these credentials should be stored in the secret scope and referred using secret path syntax: {{secrets/scope/key}}, otherwise other users of the workspace may access them via UI/API.'
                           items:
                             properties:
                               passwordSecretRef:
@@ -230,6 +233,9 @@ spec:
                         availability:
                           description: Availability type used for all nodes. Valid values are SPOT_AZURE and ON_DEMAND_AZURE.
                           type: string
+                        instanceProfileArn:
+                          description: Nodes belonging to the pool will only be placed on AWS instances with this instance profile.
+                          type: string
                         spotBidPricePercent:
                           description: (Integer) The max price for AWS spot instances, as a percentage of the corresponding instance type's on-demand price. For example, if this field is set to 50, and the instance pool needs a new i3.xlarge spot instance, then the max price is half of the price of on-demand i3.xlarge instances. Similarly, if this field is set to 200, the max price is twice the price of on-demand i3.xlarge instances. If not specified, the default value is 100. When spot instances are requested for this instance pool, only spot instances whose max price percentage matches this field are considered. For safety, this field cannot be greater than 10000.
                           type: number
@@ -346,7 +352,7 @@ spec:
                     items:
                       properties:
                         basicAuth:
-                          description: basic_auth.username and basic_auth.password for Docker repository. Docker registry credentials are encrypted when they are stored in Databricks internal storage and when they are passed to a registry upon fetching Docker images at cluster launch. However, other authenticated and authorized API users of this workspace can access the username and password.
+                          description: 'basic_auth.username and basic_auth.password for Docker repository. Docker registry credentials are encrypted when they are stored in Databricks internal storage and when they are passed to a registry upon fetching Docker images at cluster launch.  For better security, these credentials should be stored in the secret scope and referred using secret path syntax: {{secrets/scope/key}}, otherwise other users of the workspace may access them via UI/API.'
                           items:
                             properties:
                               passwordSecretRef:
@@ -453,6 +459,9 @@ spec:
                       properties:
                         availability:
                           description: Availability type used for all nodes. Valid values are SPOT_AZURE and ON_DEMAND_AZURE.
+                          type: string
+                        instanceProfileArn:
+                          description: Nodes belonging to the pool will only be placed on AWS instances with this instance profile.
                           type: string
                         spotBidPricePercent:
                           description: (Integer) The max price for AWS spot instances, as a percentage of the corresponding instance type's on-demand price. For example, if this field is set to 50, and the instance pool needs a new i3.xlarge spot instance, then the max price is half of the price of on-demand i3.xlarge instances. Similarly, if this field is set to 200, the max price is twice the price of on-demand i3.xlarge instances. If not specified, the default value is 100. When spot instances are requested for this instance pool, only spot instances whose max price percentage matches this field are considered. For safety, this field cannot be greater than 10000.
@@ -573,7 +582,7 @@ spec:
                     items:
                       properties:
                         basicAuth:
-                          description: basic_auth.username and basic_auth.password for Docker repository. Docker registry credentials are encrypted when they are stored in Databricks internal storage and when they are passed to a registry upon fetching Docker images at cluster launch. However, other authenticated and authorized API users of this workspace can access the username and password.
+                          description: 'basic_auth.username and basic_auth.password for Docker repository. Docker registry credentials are encrypted when they are stored in Databricks internal storage and when they are passed to a registry upon fetching Docker images at cluster launch.  For better security, these credentials should be stored in the secret scope and referred using secret path syntax: {{secrets/scope/key}}, otherwise other users of the workspace may access them via UI/API.'
                           items:
                             properties:
                               username:
