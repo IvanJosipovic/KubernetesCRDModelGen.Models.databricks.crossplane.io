@@ -80,6 +80,14 @@ spec:
                   description:
                     description: The description of the app.
                     type: string
+                  gitRepository:
+                    properties:
+                      provider:
+                        type: string
+                      url:
+                        description: The URL of the app once it is deployed.
+                        type: string
+                    type: object
                   noCompute:
                     type: boolean
                   providerConfig:
@@ -108,6 +116,15 @@ spec:
                         description:
                           description: The description of the app.
                           type: string
+                        experiment:
+                          properties:
+                            experimentId:
+                              description: Id of the SQL warehouse to grant permission on.
+                              type: string
+                            permission:
+                              description: 'Permission to grant on the secret scope. For secrets, only one permission is allowed. Permission must be one of: READ, WRITE, MANAGE.'
+                              type: string
+                          type: object
                         genieSpace:
                           description: attribute
                           properties:
@@ -182,6 +199,9 @@ spec:
                           type: object
                       type: object
                     type: array
+                  usagePolicyId:
+                    description: Id of the SQL warehouse to grant permission on.
+                    type: string
                   userApiScopes:
                     description: A list of api scopes granted to the user access token.
                     items:
@@ -210,6 +230,14 @@ spec:
                   description:
                     description: The description of the app.
                     type: string
+                  gitRepository:
+                    properties:
+                      provider:
+                        type: string
+                      url:
+                        description: The URL of the app once it is deployed.
+                        type: string
+                    type: object
                   noCompute:
                     type: boolean
                   providerConfig:
@@ -238,6 +266,15 @@ spec:
                         description:
                           description: The description of the app.
                           type: string
+                        experiment:
+                          properties:
+                            experimentId:
+                              description: Id of the SQL warehouse to grant permission on.
+                              type: string
+                            permission:
+                              description: 'Permission to grant on the secret scope. For secrets, only one permission is allowed. Permission must be one of: READ, WRITE, MANAGE.'
+                              type: string
+                          type: object
                         genieSpace:
                           description: attribute
                           properties:
@@ -312,6 +349,9 @@ spec:
                           type: object
                       type: object
                     type: array
+                  usagePolicyId:
+                    description: Id of the SQL warehouse to grant permission on.
+                    type: string
                   userApiScopes:
                     description: A list of api scopes granted to the user access token.
                     items:
@@ -411,6 +451,10 @@ spec:
                 properties:
                   activeDeployment:
                     properties:
+                      command:
+                        items:
+                          type: string
+                        type: array
                       createTime:
                         description: The creation time of the app.
                         type: string
@@ -425,6 +469,39 @@ spec:
                       deploymentId:
                         description: Id of the SQL warehouse to grant permission on.
                         type: string
+                      envVars:
+                        items:
+                          properties:
+                            name:
+                              description: The name of the app. The name must contain only lowercase alphanumeric characters and hyphens. It must be unique within the workspace.
+                              type: string
+                            value:
+                              type: string
+                            valueFrom:
+                              type: string
+                          type: object
+                        type: array
+                      gitSource:
+                        properties:
+                          branch:
+                            type: string
+                          commit:
+                            type: string
+                          gitRepository:
+                            properties:
+                              provider:
+                                type: string
+                              url:
+                                description: The URL of the app once it is deployed.
+                                type: string
+                            type: object
+                          resolvedCommit:
+                            type: string
+                          sourceCodePath:
+                            type: string
+                          tag:
+                            type: string
+                        type: object
                       mode:
                         type: string
                       sourceCodePath:
@@ -461,6 +538,8 @@ spec:
                   computeStatus:
                     description: attribute
                     properties:
+                      activeInstances:
+                        type: number
                       message:
                         description: Compute status message
                         type: string
@@ -483,11 +562,22 @@ spec:
                   effectiveBudgetPolicyId:
                     description: The effective budget policy ID.
                     type: string
+                  effectiveUsagePolicyId:
+                    description: Id of the SQL warehouse to grant permission on.
+                    type: string
                   effectiveUserApiScopes:
                     description: A list of effective api scopes granted to the user access token.
                     items:
                       type: string
                     type: array
+                  gitRepository:
+                    properties:
+                      provider:
+                        type: string
+                      url:
+                        description: The URL of the app once it is deployed.
+                        type: string
+                    type: object
                   id:
                     description: Id of the SQL warehouse to grant permission on.
                     type: string
@@ -501,6 +591,10 @@ spec:
                     type: string
                   pendingDeployment:
                     properties:
+                      command:
+                        items:
+                          type: string
+                        type: array
                       createTime:
                         description: The creation time of the app.
                         type: string
@@ -515,6 +609,39 @@ spec:
                       deploymentId:
                         description: Id of the SQL warehouse to grant permission on.
                         type: string
+                      envVars:
+                        items:
+                          properties:
+                            name:
+                              description: The name of the app. The name must contain only lowercase alphanumeric characters and hyphens. It must be unique within the workspace.
+                              type: string
+                            value:
+                              type: string
+                            valueFrom:
+                              type: string
+                          type: object
+                        type: array
+                      gitSource:
+                        properties:
+                          branch:
+                            type: string
+                          commit:
+                            type: string
+                          gitRepository:
+                            properties:
+                              provider:
+                                type: string
+                              url:
+                                description: The URL of the app once it is deployed.
+                                type: string
+                            type: object
+                          resolvedCommit:
+                            type: string
+                          sourceCodePath:
+                            type: string
+                          tag:
+                            type: string
+                        type: object
                       mode:
                         type: string
                       sourceCodePath:
@@ -558,6 +685,15 @@ spec:
                         description:
                           description: The description of the app.
                           type: string
+                        experiment:
+                          properties:
+                            experimentId:
+                              description: Id of the SQL warehouse to grant permission on.
+                              type: string
+                            permission:
+                              description: 'Permission to grant on the secret scope. For secrets, only one permission is allowed. Permission must be one of: READ, WRITE, MANAGE.'
+                              type: string
+                          type: object
                         genieSpace:
                           description: attribute
                           properties:
@@ -649,6 +785,9 @@ spec:
                     type: string
                   url:
                     description: The URL of the app once it is deployed.
+                    type: string
+                  usagePolicyId:
+                    description: Id of the SQL warehouse to grant permission on.
                     type: string
                   userApiScopes:
                     description: A list of api scopes granted to the user access token.

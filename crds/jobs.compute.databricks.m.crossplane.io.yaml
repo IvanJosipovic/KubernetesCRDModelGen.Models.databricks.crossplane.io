@@ -433,6 +433,15 @@ spec:
                               driverInstancePoolId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
+                              driverNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               driverNodeTypeId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
@@ -635,6 +644,15 @@ spec:
                                 type: number
                               useMlRuntime:
                                 type: boolean
+                              workerNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               workloadType:
                                 description: isn't supported
                                 items:
@@ -887,6 +905,15 @@ spec:
                         driverInstancePoolId:
                           description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                           type: string
+                        driverNodeTypeFlexibility:
+                          items:
+                            properties:
+                              alternateNodeTypeIds:
+                                items:
+                                  type: string
+                                type: array
+                            type: object
+                          type: array
                         driverNodeTypeId:
                           description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                           type: string
@@ -1089,6 +1116,15 @@ spec:
                           type: number
                         useMlRuntime:
                           type: boolean
+                        workerNodeTypeFlexibility:
+                          items:
+                            properties:
+                              alternateNodeTypeIds:
+                                items:
+                                  type: string
+                                type: array
+                            type: object
+                          type: array
                         workloadType:
                           description: isn't supported
                           items:
@@ -1293,6 +1329,9 @@ spec:
                     description: The user or the service principal the job runs as. See run_as Configuration Block below.
                     items:
                       properties:
+                        groupName:
+                          description: An optional name for the job. The default value is Untitled.
+                          type: string
                         servicePrincipalName:
                           description: The application ID of an active service principal. Setting this field requires the servicePrincipal/user role.
                           type: string
@@ -1403,6 +1442,13 @@ spec:
                                 x-kubernetes-map-type: granular
                               notebookName:
                                 description: Name of the notebook being run.
+                                type: string
+                            type: object
+                          type: array
+                        compute:
+                          items:
+                            properties:
+                              hardwareAccelerator:
                                 type: string
                             type: object
                           type: array
@@ -1681,6 +1727,13 @@ spec:
                                             x-kubernetes-map-type: granular
                                           notebookName:
                                             description: Name of the notebook being run.
+                                            type: string
+                                        type: object
+                                      type: array
+                                    compute:
+                                      items:
+                                        properties:
+                                          hardwareAccelerator:
                                             type: string
                                         type: object
                                       type: array
@@ -2136,6 +2189,15 @@ spec:
                                           driverInstancePoolId:
                                             description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                             type: string
+                                          driverNodeTypeFlexibility:
+                                            items:
+                                              properties:
+                                                alternateNodeTypeIds:
+                                                  items:
+                                                    type: string
+                                                  type: array
+                                              type: object
+                                            type: array
                                           driverNodeTypeId:
                                             description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                             type: string
@@ -2338,6 +2400,15 @@ spec:
                                             type: number
                                           useMlRuntime:
                                             type: boolean
+                                          workerNodeTypeFlexibility:
+                                            items:
+                                              properties:
+                                                alternateNodeTypeIds:
+                                                  items:
+                                                    type: string
+                                                  type: array
+                                              type: object
+                                            type: array
                                           workloadType:
                                             description: isn't supported
                                             items:
@@ -3027,6 +3098,15 @@ spec:
                               driverInstancePoolId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
+                              driverNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               driverNodeTypeId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
@@ -3229,6 +3309,15 @@ spec:
                                 type: number
                               useMlRuntime:
                                 type: boolean
+                              workerNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               workloadType:
                                 description: isn't supported
                                 items:
@@ -4624,6 +4713,15 @@ spec:
                               driverInstancePoolId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
+                              driverNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               driverNodeTypeId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
@@ -4826,6 +4924,15 @@ spec:
                                 type: number
                               useMlRuntime:
                                 type: boolean
+                              workerNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               workloadType:
                                 description: isn't supported
                                 items:
@@ -5080,6 +5187,15 @@ spec:
                         driverInstancePoolId:
                           description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                           type: string
+                        driverNodeTypeFlexibility:
+                          items:
+                            properties:
+                              alternateNodeTypeIds:
+                                items:
+                                  type: string
+                                type: array
+                            type: object
+                          type: array
                         driverNodeTypeId:
                           description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                           type: string
@@ -5282,6 +5398,15 @@ spec:
                           type: number
                         useMlRuntime:
                           type: boolean
+                        workerNodeTypeFlexibility:
+                          items:
+                            properties:
+                              alternateNodeTypeIds:
+                                items:
+                                  type: string
+                                type: array
+                            type: object
+                          type: array
                         workloadType:
                           description: isn't supported
                           items:
@@ -5486,6 +5611,9 @@ spec:
                     description: The user or the service principal the job runs as. See run_as Configuration Block below.
                     items:
                       properties:
+                        groupName:
+                          description: An optional name for the job. The default value is Untitled.
+                          type: string
                         servicePrincipalName:
                           description: The application ID of an active service principal. Setting this field requires the servicePrincipal/user role.
                           type: string
@@ -5596,6 +5724,13 @@ spec:
                                 x-kubernetes-map-type: granular
                               notebookName:
                                 description: Name of the notebook being run.
+                                type: string
+                            type: object
+                          type: array
+                        compute:
+                          items:
+                            properties:
+                              hardwareAccelerator:
                                 type: string
                             type: object
                           type: array
@@ -5874,6 +6009,13 @@ spec:
                                             x-kubernetes-map-type: granular
                                           notebookName:
                                             description: Name of the notebook being run.
+                                            type: string
+                                        type: object
+                                      type: array
+                                    compute:
+                                      items:
+                                        properties:
+                                          hardwareAccelerator:
                                             type: string
                                         type: object
                                       type: array
@@ -6331,6 +6473,15 @@ spec:
                                           driverInstancePoolId:
                                             description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                             type: string
+                                          driverNodeTypeFlexibility:
+                                            items:
+                                              properties:
+                                                alternateNodeTypeIds:
+                                                  items:
+                                                    type: string
+                                                  type: array
+                                              type: object
+                                            type: array
                                           driverNodeTypeId:
                                             description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                             type: string
@@ -6533,6 +6684,15 @@ spec:
                                             type: number
                                           useMlRuntime:
                                             type: boolean
+                                          workerNodeTypeFlexibility:
+                                            items:
+                                              properties:
+                                                alternateNodeTypeIds:
+                                                  items:
+                                                    type: string
+                                                  type: array
+                                              type: object
+                                            type: array
                                           workloadType:
                                             description: isn't supported
                                             items:
@@ -7224,6 +7384,15 @@ spec:
                               driverInstancePoolId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
+                              driverNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               driverNodeTypeId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
@@ -7426,6 +7595,15 @@ spec:
                                 type: number
                               useMlRuntime:
                                 type: boolean
+                              workerNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               workloadType:
                                 description: isn't supported
                                 items:
@@ -8858,6 +9036,15 @@ spec:
                               driverInstancePoolId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
+                              driverNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               driverNodeTypeId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
@@ -9060,6 +9247,15 @@ spec:
                                 type: number
                               useMlRuntime:
                                 type: boolean
+                              workerNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               workloadType:
                                 description: isn't supported
                                 items:
@@ -9298,6 +9494,15 @@ spec:
                         driverInstancePoolId:
                           description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                           type: string
+                        driverNodeTypeFlexibility:
+                          items:
+                            properties:
+                              alternateNodeTypeIds:
+                                items:
+                                  type: string
+                                type: array
+                            type: object
+                          type: array
                         driverNodeTypeId:
                           description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                           type: string
@@ -9500,6 +9705,15 @@ spec:
                           type: number
                         useMlRuntime:
                           type: boolean
+                        workerNodeTypeFlexibility:
+                          items:
+                            properties:
+                              alternateNodeTypeIds:
+                                items:
+                                  type: string
+                                type: array
+                            type: object
+                          type: array
                         workloadType:
                           description: isn't supported
                           items:
@@ -9625,6 +9839,9 @@ spec:
                     description: The user or the service principal the job runs as. See run_as Configuration Block below.
                     items:
                       properties:
+                        groupName:
+                          description: An optional name for the job. The default value is Untitled.
+                          type: string
                         servicePrincipalName:
                           description: The application ID of an active service principal. Setting this field requires the servicePrincipal/user role.
                           type: string
@@ -9735,6 +9952,13 @@ spec:
                                 x-kubernetes-map-type: granular
                               notebookName:
                                 description: Name of the notebook being run.
+                                type: string
+                            type: object
+                          type: array
+                        compute:
+                          items:
+                            properties:
+                              hardwareAccelerator:
                                 type: string
                             type: object
                           type: array
@@ -9934,6 +10158,13 @@ spec:
                                             x-kubernetes-map-type: granular
                                           notebookName:
                                             description: Name of the notebook being run.
+                                            type: string
+                                        type: object
+                                      type: array
+                                    compute:
+                                      items:
+                                        properties:
+                                          hardwareAccelerator:
                                             type: string
                                         type: object
                                       type: array
@@ -10375,6 +10606,15 @@ spec:
                                           driverInstancePoolId:
                                             description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                             type: string
+                                          driverNodeTypeFlexibility:
+                                            items:
+                                              properties:
+                                                alternateNodeTypeIds:
+                                                  items:
+                                                    type: string
+                                                  type: array
+                                              type: object
+                                            type: array
                                           driverNodeTypeId:
                                             description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                             type: string
@@ -10577,6 +10817,15 @@ spec:
                                             type: number
                                           useMlRuntime:
                                             type: boolean
+                                          workerNodeTypeFlexibility:
+                                            items:
+                                              properties:
+                                                alternateNodeTypeIds:
+                                                  items:
+                                                    type: string
+                                                  type: array
+                                              type: object
+                                            type: array
                                           workloadType:
                                             description: isn't supported
                                             items:
@@ -11252,6 +11501,15 @@ spec:
                               driverInstancePoolId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
+                              driverNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               driverNodeTypeId:
                                 description: ID of the system notification that is notified when an event defined in webhook_notifications is triggered.
                                 type: string
@@ -11454,6 +11712,15 @@ spec:
                                 type: number
                               useMlRuntime:
                                 type: boolean
+                              workerNodeTypeFlexibility:
+                                items:
+                                  properties:
+                                    alternateNodeTypeIds:
+                                      items:
+                                        type: string
+                                      type: array
+                                  type: object
+                                type: array
                               workloadType:
                                 description: isn't supported
                                 items:
