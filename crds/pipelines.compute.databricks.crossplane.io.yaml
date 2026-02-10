@@ -394,7 +394,7 @@ spec:
                     items:
                       properties:
                         connectionId:
-                          description: Immutable. The Unity Catalog connection this gateway pipeline uses to communicate with the source.
+                          description: Deprecated, Immutable. The Unity Catalog connection this gateway pipeline uses to communicate with the source. Use
                           type: string
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
@@ -426,6 +426,20 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        fullRefreshWindow:
+                          items:
+                            properties:
+                              daysOfWeek:
+                                items:
+                                  type: string
+                                type: array
+                              startHour:
+                                type: number
+                              timeZoneId:
+                                description: Canonical unique identifier of the Lakeflow Declarative Pipeline.
+                                type: string
+                            type: object
+                          type: array
                         ingestFromUcForeignCatalog:
                           description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                           type: boolean
@@ -456,6 +470,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -481,6 +504,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -534,6 +559,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -559,6 +593,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -615,6 +651,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -640,6 +685,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -676,6 +723,7 @@ spec:
                             type: object
                           type: array
                         sourceConfigurations:
+                          description: Array of objects describing top-level source configurations. See the REST API docs for reference.
                           items:
                             properties:
                               catalog:
@@ -711,6 +759,15 @@ spec:
                           description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                           items:
                             properties:
+                              autoFullRefreshPolicy:
+                                items:
+                                  properties:
+                                    enabled:
+                                      type: boolean
+                                    minIntervalHours:
+                                      type: number
+                                  type: object
+                                type: array
                               excludeColumns:
                                 items:
                                   type: string
@@ -736,6 +793,8 @@ spec:
                                       type: number
                                   type: object
                                 type: array
+                              rowFilter:
+                                type: string
                               salesforceIncludeFormulaFields:
                                 type: boolean
                               scdType:
@@ -1338,7 +1397,7 @@ spec:
                     items:
                       properties:
                         connectionId:
-                          description: Immutable. The Unity Catalog connection this gateway pipeline uses to communicate with the source.
+                          description: Deprecated, Immutable. The Unity Catalog connection this gateway pipeline uses to communicate with the source. Use
                           type: string
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
@@ -1370,6 +1429,20 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        fullRefreshWindow:
+                          items:
+                            properties:
+                              daysOfWeek:
+                                items:
+                                  type: string
+                                type: array
+                              startHour:
+                                type: number
+                              timeZoneId:
+                                description: Canonical unique identifier of the Lakeflow Declarative Pipeline.
+                                type: string
+                            type: object
+                          type: array
                         ingestFromUcForeignCatalog:
                           description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                           type: boolean
@@ -1400,6 +1473,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -1425,6 +1507,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -1478,6 +1562,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -1503,6 +1596,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -1559,6 +1654,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -1584,6 +1688,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -1620,6 +1726,7 @@ spec:
                             type: object
                           type: array
                         sourceConfigurations:
+                          description: Array of objects describing top-level source configurations. See the REST API docs for reference.
                           items:
                             properties:
                               catalog:
@@ -1655,6 +1762,15 @@ spec:
                           description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                           items:
                             properties:
+                              autoFullRefreshPolicy:
+                                items:
+                                  properties:
+                                    enabled:
+                                      type: boolean
+                                    minIntervalHours:
+                                      type: number
+                                  type: object
+                                type: array
                               excludeColumns:
                                 items:
                                   type: string
@@ -1680,6 +1796,8 @@ spec:
                                       type: number
                                   type: object
                                 type: array
+                              rowFilter:
+                                type: string
                               salesforceIncludeFormulaFields:
                                 type: boolean
                               scdType:
@@ -2360,7 +2478,7 @@ spec:
                     items:
                       properties:
                         connectionId:
-                          description: Immutable. The Unity Catalog connection this gateway pipeline uses to communicate with the source.
+                          description: Deprecated, Immutable. The Unity Catalog connection this gateway pipeline uses to communicate with the source. Use
                           type: string
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
@@ -2395,6 +2513,20 @@ spec:
                         connectionName:
                           description: Immutable. The Unity Catalog connection this ingestion pipeline uses to communicate with the source. Specify either ingestion_gateway_id or connection_name.
                           type: string
+                        fullRefreshWindow:
+                          items:
+                            properties:
+                              daysOfWeek:
+                                items:
+                                  type: string
+                                type: array
+                              startHour:
+                                type: number
+                              timeZoneId:
+                                description: Canonical unique identifier of the Lakeflow Declarative Pipeline.
+                                type: string
+                            type: object
+                          type: array
                         ingestFromUcForeignCatalog:
                           description: The name of default catalog in Unity Catalog. Change of this parameter forces recreation of the pipeline if you switch from  (Conflicts with storage).
                           type: boolean
@@ -2425,6 +2557,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -2450,6 +2591,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -2503,6 +2646,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -2528,6 +2680,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -2584,6 +2738,15 @@ spec:
                                       description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                                       items:
                                         properties:
+                                          autoFullRefreshPolicy:
+                                            items:
+                                              properties:
+                                                enabled:
+                                                  type: boolean
+                                                minIntervalHours:
+                                                  type: number
+                                              type: object
+                                            type: array
                                           excludeColumns:
                                             items:
                                               type: string
@@ -2609,6 +2772,8 @@ spec:
                                                   type: number
                                               type: object
                                             type: array
+                                          rowFilter:
+                                            type: string
                                           salesforceIncludeFormulaFields:
                                             type: boolean
                                           scdType:
@@ -2645,6 +2810,7 @@ spec:
                             type: object
                           type: array
                         sourceConfigurations:
+                          description: Array of objects describing top-level source configurations. See the REST API docs for reference.
                           items:
                             properties:
                               catalog:
@@ -2680,6 +2846,15 @@ spec:
                           description: Configuration settings to control the ingestion of tables. These settings are applied to all tables in the pipeline.
                           items:
                             properties:
+                              autoFullRefreshPolicy:
+                                items:
+                                  properties:
+                                    enabled:
+                                      type: boolean
+                                    minIntervalHours:
+                                      type: number
+                                  type: object
+                                type: array
                               excludeColumns:
                                 items:
                                   type: string
@@ -2705,6 +2880,8 @@ spec:
                                       type: number
                                   type: object
                                 type: array
+                              rowFilter:
+                                type: string
                               salesforceIncludeFormulaFields:
                                 type: boolean
                               scdType:
