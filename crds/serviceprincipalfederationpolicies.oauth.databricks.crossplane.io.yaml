@@ -7,11 +7,11 @@ metadata:
 spec:
   group: oauth.databricks.crossplane.io
   names:
+    kind: ServicePrincipalFederationPolicy
     categories:
     - crossplane
     - managed
     - databricks
-    kind: ServicePrincipalFederationPolicy
     listKind: ServicePrincipalFederationPolicyList
     plural: serviceprincipalfederationpolicies
     singular: serviceprincipalfederationpolicy

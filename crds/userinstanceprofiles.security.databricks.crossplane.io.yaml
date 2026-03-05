@@ -7,11 +7,11 @@ metadata:
 spec:
   group: security.databricks.crossplane.io
   names:
+    kind: UserInstanceProfile
     categories:
     - crossplane
     - managed
     - databricks
-    kind: UserInstanceProfile
     listKind: UserInstanceProfileList
     plural: userinstanceprofiles
     singular: userinstanceprofile

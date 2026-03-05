@@ -7,11 +7,11 @@ metadata:
 spec:
   group: settings.databricks.crossplane.io
   names:
+    kind: DefaultNamespaceSetting
     categories:
     - crossplane
     - managed
     - databricks
-    kind: DefaultNamespaceSetting
     listKind: DefaultNamespaceSettingList
     plural: defaultnamespacesettings
     singular: defaultnamespacesetting

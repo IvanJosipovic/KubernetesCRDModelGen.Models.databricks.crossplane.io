@@ -7,11 +7,11 @@ metadata:
 spec:
   group: unity.databricks.crossplane.io
   names:
+    kind: OnlineTable
     categories:
     - crossplane
     - managed
     - databricks
-    kind: OnlineTable
     listKind: OnlineTableList
     plural: onlinetables
     singular: onlinetable

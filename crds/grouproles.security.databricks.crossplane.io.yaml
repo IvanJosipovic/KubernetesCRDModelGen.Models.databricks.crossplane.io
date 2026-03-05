@@ -7,11 +7,11 @@ metadata:
 spec:
   group: security.databricks.crossplane.io
   names:
+    kind: GroupRole
     categories:
     - crossplane
     - managed
     - databricks
-    kind: GroupRole
     listKind: GroupRoleList
     plural: grouproles
     singular: grouprole

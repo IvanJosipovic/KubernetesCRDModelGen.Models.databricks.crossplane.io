@@ -7,11 +7,11 @@ metadata:
 spec:
   group: serving.databricks.m.crossplane.io
   names:
+    kind: ModelServing
     categories:
     - crossplane
     - managed
     - databricks
-    kind: ModelServing
     listKind: ModelServingList
     plural: modelservings
     singular: modelserving

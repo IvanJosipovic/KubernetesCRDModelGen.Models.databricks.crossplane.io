@@ -7,11 +7,11 @@ metadata:
 spec:
   group: unity.databricks.crossplane.io
   names:
+    kind: ArtifactAllowlist
     categories:
     - crossplane
     - managed
     - databricks
-    kind: ArtifactAllowlist
     listKind: ArtifactAllowlistList
     plural: artifactallowlists
     singular: artifactallowlist

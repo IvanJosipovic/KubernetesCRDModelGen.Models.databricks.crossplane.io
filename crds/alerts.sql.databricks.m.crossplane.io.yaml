@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sql.databricks.m.crossplane.io
   names:
+    kind: Alert
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Alert
     listKind: AlertList
     plural: alerts
     singular: alert

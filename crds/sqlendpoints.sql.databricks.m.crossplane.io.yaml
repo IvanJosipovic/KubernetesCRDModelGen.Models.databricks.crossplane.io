@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sql.databricks.m.crossplane.io
   names:
+    kind: SQLEndpoint
     categories:
     - crossplane
     - managed
     - databricks
-    kind: SQLEndpoint
     listKind: SQLEndpointList
     plural: sqlendpoints
     singular: sqlendpoint

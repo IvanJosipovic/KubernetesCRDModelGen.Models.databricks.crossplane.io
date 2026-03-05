@@ -7,11 +7,11 @@ metadata:
 spec:
   group: databricks.crossplane.io
   names:
+    kind: ProviderConfig
     categories:
     - crossplane
     - providerconfig
     - databricks
-    kind: ProviderConfig
     listKind: ProviderConfigList
     plural: providerconfigs
     singular: providerconfig

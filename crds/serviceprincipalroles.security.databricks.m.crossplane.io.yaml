@@ -7,11 +7,11 @@ metadata:
 spec:
   group: security.databricks.m.crossplane.io
   names:
+    kind: ServicePrincipalRole
     categories:
     - crossplane
     - managed
     - databricks
-    kind: ServicePrincipalRole
     listKind: ServicePrincipalRoleList
     plural: serviceprincipalroles
     singular: serviceprincipalrole

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: security.databricks.m.crossplane.io
   names:
+    kind: SQLPermissions
     categories:
     - crossplane
     - managed
     - databricks
-    kind: SQLPermissions
     listKind: SQLPermissionsList
     plural: sqlpermissions
     singular: sqlpermissions

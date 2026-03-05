@@ -7,11 +7,11 @@ metadata:
 spec:
   group: settings.databricks.m.crossplane.io
   names:
+    kind: EnhancedSecurityMonitoringWorkspaceSetting
     categories:
     - crossplane
     - managed
     - databricks
-    kind: EnhancedSecurityMonitoringWorkspaceSetting
     listKind: EnhancedSecurityMonitoringWorkspaceSettingList
     plural: enhancedsecuritymonitoringworkspacesettings
     singular: enhancedsecuritymonitoringworkspacesetting

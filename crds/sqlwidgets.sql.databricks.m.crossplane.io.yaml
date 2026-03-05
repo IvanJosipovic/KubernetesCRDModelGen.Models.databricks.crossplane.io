@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sql.databricks.m.crossplane.io
   names:
+    kind: SQLWidget
     categories:
     - crossplane
     - managed
     - databricks
-    kind: SQLWidget
     listKind: SQLWidgetList
     plural: sqlwidgets
     singular: sqlwidget

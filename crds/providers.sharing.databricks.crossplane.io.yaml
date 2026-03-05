@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sharing.databricks.crossplane.io
   names:
+    kind: Provider
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Provider
     listKind: ProviderList
     plural: providers
     singular: provider

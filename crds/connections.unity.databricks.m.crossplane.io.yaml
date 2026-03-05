@@ -7,11 +7,11 @@ metadata:
 spec:
   group: unity.databricks.m.crossplane.io
   names:
+    kind: Connection
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Connection
     listKind: ConnectionList
     plural: connections
     singular: connection

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: settings.databricks.m.crossplane.io
   names:
+    kind: RestrictWorkspaceAdminsSetting
     categories:
     - crossplane
     - managed
     - databricks
-    kind: RestrictWorkspaceAdminsSetting
     listKind: RestrictWorkspaceAdminsSettingList
     plural: restrictworkspaceadminssettings
     singular: restrictworkspaceadminssetting

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sql.databricks.m.crossplane.io
   names:
+    kind: SQLAlert
     categories:
     - crossplane
     - managed
     - databricks
-    kind: SQLAlert
     listKind: SQLAlertList
     plural: sqlalerts
     singular: sqlalert

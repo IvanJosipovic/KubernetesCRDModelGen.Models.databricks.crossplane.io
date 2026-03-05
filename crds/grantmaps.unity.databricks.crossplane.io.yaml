@@ -7,11 +7,11 @@ metadata:
 spec:
   group: unity.databricks.crossplane.io
   names:
+    kind: GrantMap
     categories:
     - crossplane
     - managed
     - databricks
-    kind: GrantMap
     listKind: GrantMapList
     plural: grantmaps
     singular: grantmap

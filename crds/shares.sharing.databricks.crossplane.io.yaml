@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sharing.databricks.crossplane.io
   names:
+    kind: Share
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Share
     listKind: ShareList
     plural: shares
     singular: share

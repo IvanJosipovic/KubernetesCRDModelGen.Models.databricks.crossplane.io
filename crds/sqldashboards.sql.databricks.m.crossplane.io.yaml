@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sql.databricks.m.crossplane.io
   names:
+    kind: SQLDashboard
     categories:
     - crossplane
     - managed
     - databricks
-    kind: SQLDashboard
     listKind: SQLDashboardList
     plural: sqldashboards
     singular: sqldashboard

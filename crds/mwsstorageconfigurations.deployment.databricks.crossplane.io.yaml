@@ -7,11 +7,11 @@ metadata:
 spec:
   group: deployment.databricks.crossplane.io
   names:
+    kind: MwsStorageConfigurations
     categories:
     - crossplane
     - managed
     - databricks
-    kind: MwsStorageConfigurations
     listKind: MwsStorageConfigurationsList
     plural: mwsstorageconfigurations
     singular: mwsstorageconfigurations

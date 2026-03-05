@@ -7,11 +7,11 @@ metadata:
 spec:
   group: workspace.databricks.m.crossplane.io
   names:
+    kind: WorkspaceConf
     categories:
     - crossplane
     - managed
     - databricks
-    kind: WorkspaceConf
     listKind: WorkspaceConfList
     plural: workspaceconfs
     singular: workspaceconf

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: workspace.databricks.m.crossplane.io
   names:
+    kind: GlobalInitScript
     categories:
     - crossplane
     - managed
     - databricks
-    kind: GlobalInitScript
     listKind: GlobalInitScriptList
     plural: globalinitscripts
     singular: globalinitscript

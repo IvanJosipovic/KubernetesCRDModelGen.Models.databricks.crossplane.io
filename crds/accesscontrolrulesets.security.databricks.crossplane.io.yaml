@@ -7,11 +7,11 @@ metadata:
 spec:
   group: security.databricks.crossplane.io
   names:
+    kind: AccessControlRuleSet
     categories:
     - crossplane
     - managed
     - databricks
-    kind: AccessControlRuleSet
     listKind: AccessControlRuleSetList
     plural: accesscontrolrulesets
     singular: accesscontrolruleset
