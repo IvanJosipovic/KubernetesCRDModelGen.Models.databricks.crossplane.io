@@ -7,11 +7,11 @@ metadata:
 spec:
   group: mosaic.databricks.crossplane.io
   names:
+    kind: VectorSearchIndex
     categories:
     - crossplane
     - managed
     - databricks
-    kind: VectorSearchIndex
     listKind: VectorSearchIndexList
     plural: vectorsearchindices
     singular: vectorsearchindex

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: mlflow.databricks.crossplane.io
   names:
+    kind: MlflowModel
     categories:
     - crossplane
     - managed
     - databricks
-    kind: MlflowModel
     listKind: MlflowModelList
     plural: mlflowmodels
     singular: mlflowmodel

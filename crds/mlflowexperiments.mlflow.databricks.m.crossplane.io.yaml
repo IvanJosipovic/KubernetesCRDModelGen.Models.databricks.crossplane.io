@@ -7,11 +7,11 @@ metadata:
 spec:
   group: mlflow.databricks.m.crossplane.io
   names:
+    kind: MlflowExperiment
     categories:
     - crossplane
     - managed
     - databricks
-    kind: MlflowExperiment
     listKind: MlflowExperimentList
     plural: mlflowexperiments
     singular: mlflowexperiment

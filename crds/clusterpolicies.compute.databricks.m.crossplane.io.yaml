@@ -7,11 +7,11 @@ metadata:
 spec:
   group: compute.databricks.m.crossplane.io
   names:
+    kind: ClusterPolicy
     categories:
     - crossplane
     - managed
     - databricks
-    kind: ClusterPolicy
     listKind: ClusterPolicyList
     plural: clusterpolicies
     singular: clusterpolicy

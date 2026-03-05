@@ -7,11 +7,11 @@ metadata:
 spec:
   group: unity.databricks.m.crossplane.io
   names:
+    kind: LakehouseMonitor
     categories:
     - crossplane
     - managed
     - databricks
-    kind: LakehouseMonitor
     listKind: LakehouseMonitorList
     plural: lakehousemonitors
     singular: lakehousemonitor

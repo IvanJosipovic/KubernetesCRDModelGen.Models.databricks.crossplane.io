@@ -7,11 +7,11 @@ metadata:
 spec:
   group: security.databricks.m.crossplane.io
   names:
+    kind: Entitlements
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Entitlements
     listKind: EntitlementsList
     plural: entitlements
     singular: entitlements

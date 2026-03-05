@@ -7,11 +7,11 @@ metadata:
 spec:
   group: storage.databricks.m.crossplane.io
   names:
+    kind: File
     categories:
     - crossplane
     - managed
     - databricks
-    kind: File
     listKind: FileList
     plural: files
     singular: file

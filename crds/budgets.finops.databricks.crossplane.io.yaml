@@ -7,11 +7,11 @@ metadata:
 spec:
   group: finops.databricks.crossplane.io
   names:
+    kind: Budget
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Budget
     listKind: BudgetList
     plural: budgets
     singular: budget

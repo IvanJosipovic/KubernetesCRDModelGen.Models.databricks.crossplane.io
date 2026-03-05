@@ -7,11 +7,11 @@ metadata:
 spec:
   group: deployment.databricks.m.crossplane.io
   names:
+    kind: MwsWorkspaces
     categories:
     - crossplane
     - managed
     - databricks
-    kind: MwsWorkspaces
     listKind: MwsWorkspacesList
     plural: mwsworkspaces
     singular: mwsworkspaces

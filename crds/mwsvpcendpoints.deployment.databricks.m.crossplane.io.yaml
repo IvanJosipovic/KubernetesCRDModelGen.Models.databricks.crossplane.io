@@ -7,11 +7,11 @@ metadata:
 spec:
   group: deployment.databricks.m.crossplane.io
   names:
+    kind: MwsVPCEndpoint
     categories:
     - crossplane
     - managed
     - databricks
-    kind: MwsVPCEndpoint
     listKind: MwsVPCEndpointList
     plural: mwsvpcendpoints
     singular: mwsvpcendpoint

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: apps.databricks.m.crossplane.io
   names:
+    kind: CustomAppIntegration
     categories:
     - crossplane
     - managed
     - databricks
-    kind: CustomAppIntegration
     listKind: CustomAppIntegrationList
     plural: customappintegrations
     singular: customappintegration

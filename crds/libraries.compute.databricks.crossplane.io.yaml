@@ -7,11 +7,11 @@ metadata:
 spec:
   group: compute.databricks.crossplane.io
   names:
+    kind: Library
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Library
     listKind: LibraryList
     plural: libraries
     singular: library

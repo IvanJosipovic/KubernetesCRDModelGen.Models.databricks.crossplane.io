@@ -7,11 +7,11 @@ metadata:
 spec:
   group: compute.databricks.crossplane.io
   names:
+    kind: InstancePool
     categories:
     - crossplane
     - managed
     - databricks
-    kind: InstancePool
     listKind: InstancePoolList
     plural: instancepools
     singular: instancepool

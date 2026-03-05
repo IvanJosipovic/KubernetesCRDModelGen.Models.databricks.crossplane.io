@@ -7,11 +7,11 @@ metadata:
 spec:
   group: unity.databricks.crossplane.io
   names:
+    kind: SystemSchema
     categories:
     - crossplane
     - managed
     - databricks
-    kind: SystemSchema
     listKind: SystemSchemaList
     plural: systemschemas
     singular: systemschema

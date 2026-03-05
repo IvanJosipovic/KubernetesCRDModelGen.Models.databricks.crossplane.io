@@ -7,11 +7,11 @@ metadata:
 spec:
   group: log.databricks.crossplane.io
   names:
+    kind: MwsLogDelivery
     categories:
     - crossplane
     - managed
     - databricks
-    kind: MwsLogDelivery
     listKind: MwsLogDeliveryList
     plural: mwslogdeliveries
     singular: mwslogdelivery

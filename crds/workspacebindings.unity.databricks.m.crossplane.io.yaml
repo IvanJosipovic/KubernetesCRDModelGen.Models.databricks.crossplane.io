@@ -7,11 +7,11 @@ metadata:
 spec:
   group: unity.databricks.m.crossplane.io
   names:
+    kind: WorkspaceBinding
     categories:
     - crossplane
     - managed
     - databricks
-    kind: WorkspaceBinding
     listKind: WorkspaceBindingList
     plural: workspacebindings
     singular: workspacebinding

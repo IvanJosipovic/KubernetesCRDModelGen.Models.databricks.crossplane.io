@@ -7,11 +7,11 @@ metadata:
 spec:
   group: apps.databricks.m.crossplane.io
   names:
+    kind: App
     categories:
     - crossplane
     - managed
     - databricks
-    kind: App
     listKind: AppList
     plural: apps
     singular: app

@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sql.databricks.m.crossplane.io
   names:
+    kind: Query
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Query
     listKind: QueryList
     plural: queries
     singular: query

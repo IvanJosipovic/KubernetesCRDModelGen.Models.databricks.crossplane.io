@@ -7,11 +7,11 @@ metadata:
 spec:
   group: unity.databricks.m.crossplane.io
   names:
+    kind: Volume
     categories:
     - crossplane
     - managed
     - databricks
-    kind: Volume
     listKind: VolumeList
     plural: volumes
     singular: volume

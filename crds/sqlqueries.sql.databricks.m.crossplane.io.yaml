@@ -7,11 +7,11 @@ metadata:
 spec:
   group: sql.databricks.m.crossplane.io
   names:
+    kind: SQLQuery
     categories:
     - crossplane
     - managed
     - databricks
-    kind: SQLQuery
     listKind: SQLQueryList
     plural: sqlqueries
     singular: sqlquery
